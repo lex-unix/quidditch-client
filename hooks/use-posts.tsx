@@ -4,7 +4,7 @@ import { Post } from '@/lib/types'
 import fetcher from '@/lib/fetcher'
 
 export default function UsePosts() {
-  const { data, isLoading, error } = useSWR<Post>(
+  const { data, isLoading, error } = useSWR<Post[]>(
     API_URL + '/players/get-all',
     fetcher
   )
