@@ -9,12 +9,16 @@ const links = [
     name: 'Home'
   },
   {
+    href: '/standings',
+    name: 'Standings'
+  },
+  {
     href: '/teams',
     name: 'Teams'
   },
   {
-    href: '/standings',
-    name: 'Standings'
+    href: '/players',
+    name: 'Players'
   }
 ]
 
@@ -46,7 +50,7 @@ export default function Navbar() {
 
   return (
     <div className="fixed h-12 w-full bg-neutral-50">
-      <div className="mx-auto flex h-full max-w-4xl items-center justify-between px-2 md:px-0">
+      <div className="mx-auto flex h-full max-w-4xl items-center justify-between px-2 md:px-8">
         <div className="mr-8">
           <h2 className="text-xl tracking-tighter md:text-2xl">Quidditch</h2>
         </div>
@@ -68,7 +72,7 @@ export default function Navbar() {
                 {links.map(link => (
                   <li
                     key={link.href}
-                    className="mb-4 border-b border-b-zinc-200 pb-2 last:border-b-0 "
+                    className="mb-4 border-b border-b-zinc-200 pb-2 text-sm last:border-b-0"
                   >
                     <Link onClick={() => setOpen(false)} href={link.href}>
                       {link.name}
