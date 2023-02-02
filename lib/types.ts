@@ -12,3 +12,10 @@ export type Comment = {
   content: string
   posted: string
 }
+
+export type Player = {
+  id: number
+  name: string
+  age: number
+  playerType: string
+}
