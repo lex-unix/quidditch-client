@@ -3,7 +3,7 @@ export type Post = {
   name: string
   content: string
   posted: string
-  comments: Array<Comment>
+  comments?: Array<Comment>
 }
 
 export type Comment = {
