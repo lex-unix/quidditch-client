@@ -49,7 +49,7 @@ export default function Navbar() {
   const router = useRouter()
 
   return (
-    <div className="fixed h-12 w-full bg-neutral-50">
+    <div className="fixed z-40 h-12 w-full bg-neutral-50">
       <div className="mx-auto flex h-full max-w-4xl items-center justify-between px-2 md:px-8">
         <div className="mr-8">
           <h2 className="text-xl font-bold tracking-tighter md:text-2xl">

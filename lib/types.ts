@@ -19,4 +19,11 @@ export type Player = {
   lastname: string
   age: number
   playerType: string
+  avatar: Avatar
+}
+
+export type Avatar = {
+  id: string
+  type: string
+  data: string
 }
