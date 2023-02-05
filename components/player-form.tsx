@@ -1,6 +1,6 @@
 import { API_URL } from '@/lib/constants'
 import React, { useState } from 'react'
-import { mutate } from 'swr'
+import { SWRConfig, useSWRConfig } from 'swr'
 
 export default function PlayerForm() {
   const [input, setInput] = useState({
@@ -10,6 +10,7 @@ export default function PlayerForm() {
     playerType: 'CHASER'
   })
   const [file, setFile] = useState<File>()
+  const { mutate } = useSWRConfig()
 
   const handleChange: React.ChangeEventHandler<
     HTMLInputElement | HTMLSelectElement
@@ -55,6 +56,7 @@ export default function PlayerForm() {
         })
       })
       if (res.ok) {
+        mutate(`${API_URL}/players/get-all`)
         console.log('Success')
       }
     }
