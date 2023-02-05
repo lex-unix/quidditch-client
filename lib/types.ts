@@ -15,7 +15,8 @@ export type Comment = {
 
 export type Player = {
   id: number
-  name: string
+  firstname: string
+  lastname: string
   age: number
   playerType: string
 }

@@ -52,7 +52,9 @@ export default function Navbar() {
     <div className="fixed h-12 w-full bg-neutral-50">
       <div className="mx-auto flex h-full max-w-4xl items-center justify-between px-2 md:px-8">
         <div className="mr-8">
-          <h2 className="text-xl tracking-tighter md:text-2xl">Quidditch</h2>
+          <h2 className="text-xl font-bold tracking-tighter md:text-2xl">
+            Quidditch
+          </h2>
         </div>
         <div className="hidden items-center gap-4 md:flex md:flex-1">
           {links.map(link => (
