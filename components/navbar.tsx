@@ -53,7 +53,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-full max-w-4xl items-center justify-between px-2 md:px-8">
         <div className="mr-8">
           <h2 className="text-xl font-bold tracking-tighter md:text-2xl">
-            Quidditch
+            <Link href="/"> Quidditch</Link>
           </h2>
         </div>
         <div className="hidden items-center gap-4 md:flex md:flex-1">
