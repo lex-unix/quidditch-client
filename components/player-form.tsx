@@ -1,4 +1,5 @@
 import { API_URL } from '@/lib/constants'
+import { createPlayer, createAvatar } from '@/lib/player'
 import React, { useState } from 'react'
 import { useSWRConfig } from 'swr'
 
@@ -33,35 +34,25 @@ export default function PlayerForm() {
     if (!file) return
 
     const data = new FormData()
+
     data.append('file', file)
 
-    const fileRes = await fetch(`${API_URL}/files/upload`, {
-      method: 'POST',
-      body: data
-    })
+    const fileRes = await createAvatar(data)
 
     if (fileRes.ok) {
       const { id } = await fileRes.json()
-      const res = await fetch(`${API_URL}/players/save`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          ...input,
-          avatar: {
-            id
-          }
-        })
-      })
-      if (res.ok) {
+      const playerRes = await createPlayer(id, input)
+
+      if (playerRes.ok) {
         mutate(`${API_URL}/players/get-all`)
+
         setInput({
           firstname: '',
           lastname: '',
           age: '',
           playerType: 'CHASER'
         })
+
         console.log('Success')
       }
     }

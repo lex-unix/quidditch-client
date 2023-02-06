@@ -1,3 +1,4 @@
+import { createComment } from '@/lib/comment'
 import { API_URL } from '@/lib/constants'
 import React, { useState } from 'react'
 import { useSWRConfig } from 'swr'
@@ -25,18 +26,7 @@ export default function CommentForm({ postId }: Props) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const res = await fetch(`${API_URL}/comments/new`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        ...input,
-        post: {
-          id: postId
-        }
-      })
-    })
+    const res = await createComment(postId, input)
 
     if (res.ok) {
       mutate(`${API_URL}/posts/get/${postId}`)

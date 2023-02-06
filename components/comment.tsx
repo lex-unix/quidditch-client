@@ -3,6 +3,7 @@ import { type Comment as CommentProps } from '@/lib/types'
 import { formatDistanceToNow } from 'date-fns'
 import { TrashIcon } from './icons'
 import { useSWRConfig } from 'swr'
+import { deletComment } from '@/lib/comment'
 
 interface Props extends CommentProps {
   postId: string
@@ -13,9 +14,7 @@ export default function Comment(props: Props) {
   const { mutate } = useSWRConfig()
 
   const handleDeleteComment = async () => {
-    const res = await fetch(`${API_URL}/comments/delete/${id}`, {
-      method: 'DELETE'
-    })
+    const res = await deletComment(id)
 
     if (res.ok) {
       mutate(`${API_URL}/posts/get/${postId}`)
