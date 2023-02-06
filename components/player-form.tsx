@@ -72,6 +72,9 @@ export default function PlayerForm() {
           id="firstname"
           name="firstname"
           type="text"
+          required
+          minLength={2}
+          maxLength={30}
           className="rounded-md border px-2 py-1"
           onChange={handleChange}
         />
@@ -82,6 +85,9 @@ export default function PlayerForm() {
           id="lastname"
           name="lastname"
           type="text"
+          required
+          minLength={2}
+          maxLength={30}
           className="rounded-md border px-2 py-1"
           onChange={handleChange}
         />
@@ -92,6 +98,9 @@ export default function PlayerForm() {
           id="age"
           name="age"
           type="text"
+          minLength={2}
+          maxLength={2}
+          required
           className="rounded-md border py-1 px-2"
           onChange={handleChange}
         />
@@ -101,6 +110,7 @@ export default function PlayerForm() {
         <select
           id="playerType"
           name="playerType"
+          required
           className="rounded-md border px-1 py-2"
           onChange={handleChange}
         >
@@ -116,6 +126,7 @@ export default function PlayerForm() {
           id="age"
           name="age"
           type="file"
+          required
           className="rounded-md file:mr-4 file:cursor-pointer file:rounded-full file:border-0 file:bg-sky-50 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-sky-700 hover:file:bg-sky-100"
           onChange={handleFileChange}
         />
