@@ -1,6 +1,6 @@
 import { API_URL } from '@/lib/constants'
 import React, { useState } from 'react'
-import { SWRConfig, useSWRConfig } from 'swr'
+import { useSWRConfig } from 'swr'
 
 export default function PlayerForm() {
   const [input, setInput] = useState({
@@ -9,7 +9,7 @@ export default function PlayerForm() {
     age: '',
     playerType: 'CHASER'
   })
-  const [file, setFile] = useState<File>()
+  const [file, setFile] = useState<File | null>(null)
   const { mutate } = useSWRConfig()
 
   const handleChange: React.ChangeEventHandler<
@@ -23,7 +23,7 @@ export default function PlayerForm() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files && e.target.files[0]
-    if (!f) return
+    if (!f) setFile(null)
     setFile(f)
   }
 
@@ -56,6 +56,12 @@ export default function PlayerForm() {
       })
       if (res.ok) {
         mutate(`${API_URL}/players/get-all`)
+        setInput({
+          firstname: '',
+          lastname: '',
+          age: '',
+          playerType: 'CHASER'
+        })
         console.log('Success')
       }
     }
@@ -77,6 +83,7 @@ export default function PlayerForm() {
           maxLength={30}
           className="rounded-md border px-2 py-1"
           onChange={handleChange}
+          value={input.firstname}
         />
       </div>
       <div className="flex flex-col gap-1">
@@ -90,6 +97,7 @@ export default function PlayerForm() {
           maxLength={30}
           className="rounded-md border px-2 py-1"
           onChange={handleChange}
+          value={input.lastname}
         />
       </div>
       <div className="flex flex-col gap-1">
@@ -103,6 +111,7 @@ export default function PlayerForm() {
           required
           className="rounded-md border py-1 px-2"
           onChange={handleChange}
+          value={input.age}
         />
       </div>
       <div className="flex flex-col gap-1">
