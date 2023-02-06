@@ -5,7 +5,6 @@ import usePlayers from '@/hooks/use-players'
 
 export default function PlayersPage() {
   const { players } = usePlayers()
-  console.log(players)
   return (
     <Container title="players">
       <PlayerList />

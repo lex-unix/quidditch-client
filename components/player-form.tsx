@@ -25,7 +25,6 @@ export default function PlayerForm() {
     const f = e.target.files && e.target.files[0]
     if (!f) return
     setFile(f)
-    console.log(f)
   }
 
   const handleSubmit = async (e: any) => {

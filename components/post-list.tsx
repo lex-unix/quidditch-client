@@ -1,6 +1,6 @@
 import UsePosts from '@/hooks/use-posts'
 import React from 'react'
-import Post from './post'
+import FeedPost from './feed-post'
 
 export default function PostList() {
   const { posts, isLoading, isError } = UsePosts()
@@ -12,7 +12,7 @@ export default function PostList() {
   return (
     <ul className="flex flex-col gap-4">
       {posts.map(post => (
-        <Post key={post.id} {...post} />
+        <FeedPost key={post.id} {...post} />
       ))}
     </ul>
   )

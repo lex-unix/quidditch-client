@@ -1,41 +1,23 @@
-import React from 'react'
 import { type Post as PostProps } from '@/lib/types'
-import { TrashIcon } from './icons'
-import { API_URL } from '@/lib/constants'
-import { useSWRConfig } from 'swr'
+import { formatDistanceToNow } from 'date-fns'
 
 interface Props extends PostProps {}
 
 export default function Post(props: Props) {
-  const { id, name, content } = props
-  const { mutate } = useSWRConfig()
+  const { name, content, posted } = props
 
-  const handlePostDelete = async () => {
-    const res = await fetch(`${API_URL}/posts/delete/${id}`, {
-      method: 'DELETE'
-    })
-    if (!res.ok) {
-    } else {
-      mutate(`${API_URL}/posts/get-all?page=${1}&length=${100}`)
-    }
-  }
-
+  const created = posted && posted.split('.')[0]
   return (
-    <li className="rounded-md border border-zinc-300/70 py-2 px-4">
-      <div className="mb-4">
-        <p className="text-lg font-bold">{name}</p>
-        <p className="line-clamp-2 md:line-clamp-3">{content}</p>
+    <div>
+      <div>
+        <h2 className="text-2xl font-bold md:text-3xl">{name}</h2>
+        <p className="mt-2">{content}</p>
       </div>
-      <div className="-mx-4 border-t border-t-zinc-300/70">
-        <div className="flex h-full justify-end px-4 pt-2">
-          <button
-            onClick={handlePostDelete}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-red-100/70 text-red-500"
-          >
-            <TrashIcon />
-          </button>
-        </div>
+      <div>
+        <p className="text-right opacity-60">
+          {formatDistanceToNow(new Date(created))} ago
+        </p>
       </div>
-    </li>
+    </div>
   )
 }
