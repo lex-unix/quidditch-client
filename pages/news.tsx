@@ -5,7 +5,7 @@ export default function NewsPage() {
   return (
     <Container title="News">
       <div className="mb-6">
-        <h1 className="font-bold md:text-2xl">News</h1>
+        <h1 className="text-2xl font-bold md:text-3xl">News</h1>
       </div>
       <PostList />
     </Container>

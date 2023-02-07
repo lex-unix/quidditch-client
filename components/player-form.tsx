@@ -61,7 +61,7 @@ export default function PlayerForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto flex max-w-md flex-col justify-center gap-4 rounded-xl border py-4 px-6"
+      className="mx-auto flex max-w-md flex-col justify-center gap-4 rounded-xl border bg-white py-4 px-6"
     >
       <div className="flex flex-col gap-1">
         <label className="text-zinc-900/60">First name</label>

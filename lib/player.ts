@@ -1,9 +1,12 @@
-import { API_URL } from './constants'
+import { API_TOKEN, API_URL } from './constants'
 import { Player } from './types'
 
 export const createAvatar = async (data: FormData) => {
   return fetch(`${API_URL}/files/upload`, {
     method: 'POST',
+    headers: {
+      Authorization: API_TOKEN
+    },
     body: data
   })
 }
@@ -19,7 +22,8 @@ export const createPlayer = async (
   return fetch(`${API_URL}/players/save`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: API_TOKEN
     },
     body: JSON.stringify({
       ...player,

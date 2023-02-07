@@ -1,4 +1,4 @@
-import { API_URL } from './constants'
+import { API_TOKEN, API_URL } from './constants'
 import { Comment } from './types'
 
 type CommentWihoutIdAndPosted = Omit<Comment, 'id' | 'posted'>
@@ -10,7 +10,8 @@ export const createComment = async (
   return fetch(`${API_URL}/comments/new`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: API_TOKEN
     },
     body: JSON.stringify({
       ...comment,
