@@ -22,8 +22,11 @@ export const createComment = async (
   })
 }
 
-export const deletComment = async (id: number) => {
+export const deleteComment = async (id: number) => {
   return fetch(`${API_URL}/comments/delete/${id}`, {
+    headers: {
+      Authorization: API_TOKEN
+    },
     method: 'DELETE'
   })
 }

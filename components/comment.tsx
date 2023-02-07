@@ -3,7 +3,9 @@ import { type Comment as CommentProps } from '@/lib/types'
 import { formatDistanceToNow } from 'date-fns'
 import { TrashIcon } from './icons'
 import { useSWRConfig } from 'swr'
-import { deletComment } from '@/lib/comment'
+import { deleteComment } from '@/lib/comment'
+import { useAtomValue } from 'jotai'
+import { admin } from '@/store/admin'
 
 interface Props extends CommentProps {
   postId: string
@@ -11,10 +13,11 @@ interface Props extends CommentProps {
 
 export default function Comment(props: Props) {
   const { postId, id, author, content, posted } = props
+  const isAdmin = useAtomValue(admin)
   const { mutate } = useSWRConfig()
 
   const handleDeleteComment = async () => {
-    const res = await deletComment(id)
+    const res = await deleteComment(id)
 
     if (res.ok) {
       mutate(`${API_URL}/posts/get/${postId}`)
@@ -32,12 +35,14 @@ export default function Comment(props: Props) {
         <p className="mr-2 text-right">
           {formatDistanceToNow(new Date(posted))} ago
         </p>
-        <button
-          onClick={handleDeleteComment}
-          className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-red-100 text-red-700 hover:bg-red-200"
-        >
-          <TrashIcon />
-        </button>
+        {isAdmin && (
+          <button
+            onClick={handleDeleteComment}
+            className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-red-100 text-red-700 hover:bg-red-200"
+          >
+            <TrashIcon />
+          </button>
+        )}
       </div>
     </div>
   )
