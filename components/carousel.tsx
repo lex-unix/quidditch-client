@@ -73,7 +73,7 @@ export default function Carousel() {
       {selectedIndex > 0 && (
         <button
           onClick={scrollPrev}
-          className="absolute top-[50%] left-4 flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-full bg-black/30 text-white transition-all hover:bg-black/50 lg:left-14"
+          className="absolute top-[50%] left-4 flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-full bg-black/30 text-white transition-all hover:bg-black/50 lg:left-8"
         >
           <ChevronLeftIcon />
         </button>
@@ -81,7 +81,7 @@ export default function Carousel() {
       {selectedIndex < scrollSnaps.length - 1 && (
         <button
           onClick={scrollNext}
-          className="absolute top-[50%] right-4 flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-full bg-black/30 text-white transition-all hover:bg-black/50 lg:right-14"
+          className="absolute top-[50%] right-4 flex h-10 w-10 translate-y-[-50%] items-center justify-center rounded-full bg-black/30 text-white transition-all hover:bg-black/50 lg:right-8"
         >
           <ChevronRightIcon />
         </button>
