@@ -4,10 +4,13 @@ import { TrashIcon } from './icons'
 import { API_URL } from '@/lib/constants'
 import { useSWRConfig } from 'swr'
 import Link from 'next/link'
+import { useAtomValue } from 'jotai'
+import { admin } from '@/store/admin'
 
 interface Props extends PostProps {}
 
 export default function FeedPost(props: Props) {
+  const isAdmin = useAtomValue(admin)
   const { id, name, content } = props
   const { mutate } = useSWRConfig()
 
@@ -29,16 +32,18 @@ export default function FeedPost(props: Props) {
         </p>
         <p className="line-clamp-2 md:line-clamp-3">{content}</p>
       </div>
-      <div className="-mx-4 border-t border-t-zinc-300/70">
-        <div className="flex h-full justify-end px-4 pt-2">
-          <button
-            onClick={handlePostDelete}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-red-100/70 text-red-500"
-          >
-            <TrashIcon />
-          </button>
+      {isAdmin && (
+        <div className="-mx-4 border-t border-t-zinc-300/70">
+          <div className="flex h-full justify-end px-4 pt-2">
+            <button
+              onClick={handlePostDelete}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-red-100/70 text-red-500"
+            >
+              <TrashIcon />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </li>
   )
 }
