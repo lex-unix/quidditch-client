@@ -15,3 +15,12 @@ export const createPost = async (post: PostWithAuhtorAndContent) => {
     })
   })
 }
+
+export const deletePost = async (id: number) => {
+  return fetch(`${API_URL}/posts/delete/${id}`, {
+    headers: {
+      Authorization: API_TOKEN
+    },
+    method: 'DELETE'
+  })
+}

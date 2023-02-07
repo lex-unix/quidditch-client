@@ -44,7 +44,7 @@ export default function UserForm({ loginUser }: Props) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto flex max-w-md flex-col justify-center gap-2 rounded-md border py-4 px-6 md:py-6 md:px-8"
+      className="mx-auto flex max-w-md flex-col justify-center gap-2 rounded-md border bg-white py-4 px-6 md:py-6 md:px-8"
     >
       <div className="flex flex-col gap-1">
         <label className="opacity-60">Username</label>

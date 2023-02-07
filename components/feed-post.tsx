@@ -6,6 +6,7 @@ import { useSWRConfig } from 'swr'
 import Link from 'next/link'
 import { useAtomValue } from 'jotai'
 import { admin } from '@/store/admin'
+import { deletePost } from '@/lib/post'
 
 interface Props extends PostProps {}
 
@@ -15,9 +16,7 @@ export default function FeedPost(props: Props) {
   const { mutate } = useSWRConfig()
 
   const handlePostDelete = async () => {
-    const res = await fetch(`${API_URL}/posts/delete/${id}`, {
-      method: 'DELETE'
-    })
+    const res = await deletePost(id)
     if (!res.ok) {
     } else {
       mutate(`${API_URL}/posts/get-all?page=${1}&length=${100}`)
