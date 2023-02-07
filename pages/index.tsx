@@ -15,7 +15,7 @@ export default function Home() {
       <div className="mb-0">
         <Carousel />
       </div>
-      <div className="relative flex flex-col justify-center overflow-hidden rounded-sm pt-6 lg:-top-10 lg:flex-row lg:pt-0">
+      <div className="relative -top-10 flex flex-col justify-center overflow-hidden rounded-sm px-8 pt-6 md:-top-10 md:flex-row md:gap-0 md:pt-0">
         <StatsCard statName="Standings">
           <StatsItem position={1}>
             <Image src="/milan.png" alt="Milan" width={25} height={25} />
@@ -52,20 +52,19 @@ export default function Home() {
             <span>Jack Sloper</span>
           </StatsItem>
         </StatsCard>
-        <div className="absolute inset-y-0 hidden h-full w-[1px] bg-gray-300/60 lg:block"></div>
-        <div className="absolute inset-x-0 block h-[1px] w-full bg-gray-300/60 lg:hidden"></div>
+        <div className="absolute hidden h-full w-[1px] bg-gray-300/60 md:block"></div>
       </div>
-      <div className="pt-6">
+      <div className="pt-4 md:pt-6">
         {posts && !isLoading && !isError && (
           <LatestNewsCard>
             {posts.map(post => (
               <div
                 key={post.id}
-                className="mb-4 border-b border-b-gray-300 pb-2 last:mb-0 last:border-b-0 last:pb-0 lg:mb-6 lg:pb-4"
+                className="mb-4 border-b border-b-gray-300 pb-2 last:mb-0 last:border-b-0 last:pb-0 md:mb-6 md:pb-4"
               >
                 <Link
                   href={`/news/${post.id}`}
-                  className="text-base font-medium underline-offset-2 hover:text-rose-800 hover:underline lg:text-lg"
+                  className="text-sm font-medium underline-offset-2 hover:text-rose-800 hover:underline md:text-base"
                 >
                   {post.name}
                 </Link>

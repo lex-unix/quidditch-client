@@ -49,8 +49,8 @@ export default function Navbar() {
   const router = useRouter()
 
   return (
-    <div className="fixed z-40 h-12 w-full bg-neutral-50">
-      <div className="mx-auto flex h-full items-center justify-between px-4 lg:px-24">
+    <div className="fixed z-40 h-16 w-full border-b border-b-gray-300/70 bg-neutral-50">
+      <div className="mx-auto flex h-full items-center justify-between px-4 md:px-24">
         <div className="mr-8">
           <h2 className="text-xl font-bold tracking-tighter md:text-2xl">
             <Link onClick={() => setOpen(false)} href="/">
@@ -72,7 +72,7 @@ export default function Navbar() {
             {open ? <CrossIcon /> : <HamburgerIcon />}
           </button>
           {open && (
-            <div className="fixed inset-0 top-12 bg-gray-50">
+            <div className="fixed inset-0 top-16 bg-gray-50">
               <ul className="mt-4 px-2">
                 {links.map(link => (
                   <li
