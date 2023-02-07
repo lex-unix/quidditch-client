@@ -6,6 +6,7 @@ import Image from 'next/image'
 import LatestNewsCard from '@/components/latest-news-card'
 import UsePosts from '@/hooks/use-posts'
 import Link from 'next/link'
+import { formatDistanceToNow } from 'date-fns'
 
 export default function Home() {
   const { posts, isError, isLoading } = UsePosts(1, 5)
@@ -60,7 +61,7 @@ export default function Home() {
             {posts.map(post => (
               <div
                 key={post.id}
-                className="mb-4 border-b border-b-gray-300 pb-2 last:mb-0 last:border-b-0 last:pb-0 md:mb-6 md:pb-4"
+                className="mb-4 flex items-center justify-between border-b border-b-gray-300 pb-2 last:mb-0 last:border-b-0 last:pb-0 md:mb-6 md:pb-4"
               >
                 <Link
                   href={`/news/${post.id}`}
@@ -68,6 +69,9 @@ export default function Home() {
                 >
                   {post.name}
                 </Link>
+                <p className="text-xs opacity-70">
+                  {formatDistanceToNow(new Date(post.posted))} ago
+                </p>
               </div>
             ))}
           </LatestNewsCard>
