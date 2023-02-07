@@ -5,8 +5,8 @@ import { CrossIcon, HamburgerIcon } from './icons'
 
 const links = [
   {
-    href: '/',
-    name: 'Home'
+    href: '/news',
+    name: 'News'
   },
   {
     href: '/standings',
@@ -50,10 +50,13 @@ export default function Navbar() {
 
   return (
     <div className="fixed z-40 h-12 w-full bg-neutral-50">
-      <div className="mx-auto flex h-full max-w-4xl items-center justify-between px-2 md:px-8">
+      <div className="mx-auto flex h-full items-center justify-between px-4 lg:px-24">
         <div className="mr-8">
           <h2 className="text-xl font-bold tracking-tighter md:text-2xl">
-            <Link href="/"> Quidditch</Link>
+            <Link onClick={() => setOpen(false)} href="/">
+              {' '}
+              Quidditch
+            </Link>
           </h2>
         </div>
         <div className="hidden items-center gap-4 md:flex md:flex-1">

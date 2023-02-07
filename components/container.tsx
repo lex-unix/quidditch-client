@@ -14,7 +14,7 @@ export default function Container(props: Props) {
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="mx-auto mb-4 w-full max-w-4xl px-2 pt-14 md:mb-6 md:px-8 md:pt-20">
+      <div className="mx-auto mb-4 w-full px-4 pt-14 md:mb-6 md:pt-20 lg:px-24">
         {children}
       </div>
     </>
