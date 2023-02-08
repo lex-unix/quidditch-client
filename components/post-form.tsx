@@ -41,7 +41,7 @@ export default function PostForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto flex max-w-md flex-col justify-center gap-4 rounded-xl border bg-white py-4 px-6"
+      className="flex max-w-5xl flex-col justify-center gap-4 rounded-xl border bg-white py-4 px-6"
     >
       <div className="flex flex-col gap-1">
         <label className="opacity-60">Title</label>
@@ -51,7 +51,7 @@ export default function PostForm() {
           type="text"
           onChange={handleChange}
           value={input.name}
-          className="rounded-md border px-2 py-1"
+          className="max-w-xl rounded-md border px-2 py-1"
         />
       </div>
       <div className="flex flex-col gap-1">
@@ -65,7 +65,7 @@ export default function PostForm() {
           className="min-h-[40px] rounded-md border px-2 py-1"
         ></textarea>
       </div>
-      <button className="mx-auto w-fit rounded-md bg-black px-4 py-2 text-white">
+      <button className="w-fit rounded-md bg-black px-4 py-2 text-left text-white">
         Submit
       </button>
     </form>

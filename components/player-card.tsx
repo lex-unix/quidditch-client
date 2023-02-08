@@ -33,7 +33,7 @@ export default function PlayerCard(props: Props) {
   }
 
   return (
-    <div className="mb-4 w-full max-w-md lg:max-w-xl">
+    <div className="mb-4">
       <div className="flex flex-col items-center gap-4">
         <div className="relative h-72 w-60 overflow-hidden rounded-sm">
           <Image
@@ -41,7 +41,7 @@ export default function PlayerCard(props: Props) {
             alt={name}
             width={720}
             height={480}
-            className="absolute inset-0 h-[720px] w-[480px] object-cover"
+            className="absolute inset-0 object-cover"
           />
           <div className="absolute inset-x-0 bottom-0 bg-black/70 px-4 pb-4 pt-2 text-gray-200">
             <span className="mb-4 text-lg font-semibold md:text-xl">

@@ -14,7 +14,7 @@ export default function Team({ teamName, children }: Props) {
           {capitalizeFirstLetter(teamName.toLowerCase())}
         </h2>
       </div>
-      <div className="mx-auto grid w-fit grid-cols-1 gap-1 md:w-full md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mx-auto grid grid-cols-1 gap-1 md:w-full md:grid-cols-3 xl:grid-cols-4">
         {children}
       </div>
     </div>

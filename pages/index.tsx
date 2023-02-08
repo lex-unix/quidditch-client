@@ -81,14 +81,14 @@ export default function Home() {
         <h2 className="mb-2 text-lg font-bold uppercase md:mb-6 md:text-xl">
           About
         </h2>
-        <p className="mb-2">
+        <p className="mb-2 text-sm italic">
           While Quidditch was the first (and so far, only) broomstick-based game
           to attain near-worldwide popularity amongst the wizarding people, it
           was certainly not the first broomstick game. In truth, Quidditch
           probably owed a debt to a number of its forerunners in making it as
           successful as it became.
         </p>
-        <p>
+        <p className="text-sm italic">
           All of these archaic broom games were popular in localised areas, but
           none had the vast appeal that Quidditch did. The beauty of Quidditch
           was that it took the best aspects of all its predecessors, added its

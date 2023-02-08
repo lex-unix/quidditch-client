@@ -47,13 +47,12 @@ export default function PlayerForm() {
       if (playerRes.ok) {
         mutate(`${API_URL}/players/get-all`)
 
-        setInput({
+        setInput(prev => ({
+          ...prev,
           firstname: '',
           lastname: '',
-          age: '',
-          team: '1',
-          playerType: 'CHASER'
-        })
+          age: ''
+        }))
 
         console.log('Success')
       }
@@ -63,7 +62,7 @@ export default function PlayerForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto flex max-w-md flex-col justify-center gap-4 rounded-xl border bg-white py-4 px-6"
+      className="flex max-w-2xl flex-col justify-center gap-4 rounded-xl border bg-white py-4 px-6"
     >
       <div className="flex flex-col gap-1">
         <label className="text-zinc-900/60">First name</label>
@@ -74,7 +73,7 @@ export default function PlayerForm() {
           required
           minLength={2}
           maxLength={30}
-          className="rounded-md border px-2 py-1"
+          className="max-w-sm rounded-md border px-2 py-1"
           onChange={handleChange}
           value={input.firstname}
         />
@@ -88,7 +87,7 @@ export default function PlayerForm() {
           required
           minLength={2}
           maxLength={30}
-          className="rounded-md border px-2 py-1"
+          className="max-w-sm rounded-md border px-2 py-1"
           onChange={handleChange}
           value={input.lastname}
         />
@@ -102,7 +101,7 @@ export default function PlayerForm() {
           minLength={2}
           maxLength={2}
           required
-          className="rounded-md border py-1 px-2"
+          className="max-w-xs rounded-md border py-1 px-2"
           onChange={handleChange}
           value={input.age}
         />
@@ -113,7 +112,7 @@ export default function PlayerForm() {
           id="team"
           name="team"
           required
-          className="rounded-md border px-1 py-2"
+          className="max-w-xs rounded-md border px-1 py-2"
           onChange={handleChange}
         >
           <option value="1">Gryffindor</option>
@@ -128,7 +127,7 @@ export default function PlayerForm() {
           id="playerType"
           name="playerType"
           required
-          className="rounded-md border px-1 py-2"
+          className="max-w-xs rounded-md border px-1 py-2"
           onChange={handleChange}
         >
           <option value="CHASER">Chaser</option>
@@ -148,7 +147,7 @@ export default function PlayerForm() {
           onChange={handleFileChange}
         />
       </div>
-      <button className="mx-auto w-fit rounded-md bg-black px-4 py-2 text-white">
+      <button className="w-fit rounded-md bg-black px-4 py-2 text-white">
         Submit
       </button>
     </form>

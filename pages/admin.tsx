@@ -16,7 +16,7 @@ export default function AdminPage() {
       {isLogged ? (
         <>
           <div className="mb-8 md:mb-10">
-            <h2 className="mb-4 text-xl font-bold md:mb-6 md:text-xl">
+            <h2 className="mb-4 text-xl font-bold md:mb-6 md:text-2xl">
               Create new post
             </h2>
             <PostForm />

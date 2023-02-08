@@ -29,10 +29,12 @@ export default function PostPage() {
           posted={post.posted}
         />
         <div className="mt-4 md:mt-8">
-          <h1 className="mb-2 text-xl font-medium md:mb-4">Leave a comment!</h1>
+          <h1 className="mb-2 text-xl font-medium md:mb-4 md:text-2xl">
+            Leave a comment!
+          </h1>
           <CommentForm postId={id} />
           {post.comments && (
-            <div className="mt-4 flex flex-col gap-4 md:mt-6 md:gap-8">
+            <div className="mt-6 flex flex-col gap-2 md:mt-8 md:gap-4">
               {post.comments.map(comment => (
                 <Comment
                   key={comment.id}
