@@ -69,7 +69,7 @@ export default function Navbar() {
           </button>
           {open && (
             <div className="fixed inset-0 top-16 bg-gray-50">
-              <ul className="mt-4 px-2">
+              <ul className="mt-4 px-4">
                 {links.map(link => (
                   <li
                     key={link.href}

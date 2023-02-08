@@ -79,7 +79,7 @@ export default function Home() {
       </div>
       <div className="mt-8 rounded-md border border-gray-300/40 bg-white py-6 px-8 shadow-md md:mt-10 md:py-8 md:px-12">
         <h2 className="mb-2 text-lg font-bold uppercase md:mb-6 md:text-xl">
-          History
+          About
         </h2>
         <p className="mb-2">
           While Quidditch was the first (and so far, only) broomstick-based game

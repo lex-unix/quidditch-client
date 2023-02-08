@@ -1,6 +1,7 @@
 import { createComment } from '@/lib/comment'
 import { API_URL } from '@/lib/constants'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import useResizableTextarea from '@/hooks/use-resizable-textarea'
 import { useSWRConfig } from 'swr'
 
 interface Props {
@@ -12,7 +13,10 @@ export default function CommentForm({ postId }: Props) {
     author: '',
     content: ''
   })
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
   const { mutate } = useSWRConfig()
+
+  useResizableTextarea(textareaRef.current, input.content)
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -57,11 +61,12 @@ export default function CommentForm({ postId }: Props) {
       <div className="flex flex-col gap-1">
         <label className="opacity-60">Comment</label>
         <textarea
+          ref={textareaRef}
           id="content"
           name="content"
           onChange={handleChange}
           value={input.content}
-          className="rounded-md border px-2 py-1"
+          className="min-h-[40px] rounded-md border px-2 py-1"
         ></textarea>
       </div>
       <button className="mx-auto w-fit rounded-md border bg-black px-4 py-2 text-sm text-white">
