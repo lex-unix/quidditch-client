@@ -12,7 +12,7 @@ export default function NewsPage() {
   return (
     <Container title="News">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold capitalize md:text-3xl">
+        <h1 className="font-cinzel text-2xl font-bold capitalize md:text-3xl">
           Latest news
         </h1>
       </div>

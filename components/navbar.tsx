@@ -48,7 +48,7 @@ export default function Navbar() {
     <div className="fixed z-40 h-16 w-full border-b border-b-gray-300/70 bg-neutral-50">
       <div className="mx-auto flex h-full items-center justify-between px-4 lg:px-24">
         <div className="mr-8">
-          <h2 className="text-xl font-bold tracking-tighter md:text-2xl">
+          <h2 className="font-cinzel text-xl font-bold tracking-tighter md:text-2xl">
             <Link onClick={() => setOpen(false)} href="/">
               {' '}
               Quidditch

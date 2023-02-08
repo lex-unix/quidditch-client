@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   future: {
@@ -8,7 +10,11 @@ module.exports = {
     './components/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        cinzel: ['var(--font-cinzel)']
+      }
+    }
   },
   plugins: [require('@tailwindcss/line-clamp')]
 }

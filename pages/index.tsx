@@ -78,7 +78,7 @@ export default function Home() {
         )}
       </div>
       <div className="mt-8 rounded-md border border-gray-300/40 bg-white py-6 px-8 shadow-md md:mt-10 md:py-8 md:px-12">
-        <h2 className="mb-2 text-lg font-bold uppercase md:mb-6 md:text-xl">
+        <h2 className="mb-2 font-cinzel text-lg font-bold uppercase md:mb-6 md:text-xl">
           About
         </h2>
         <p className="mb-2 text-sm italic">

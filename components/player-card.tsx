@@ -44,7 +44,7 @@ export default function PlayerCard(props: Props) {
             className="absolute inset-0 object-cover"
           />
           <div className="absolute inset-x-0 bottom-0 bg-black/70 px-4 pb-4 pt-2 text-gray-200">
-            <span className="mb-4 text-lg font-semibold md:text-xl">
+            <span className="mb-4 font-cinzel text-lg font-semibold md:text-xl">
               {name}
             </span>
             <p className="font-medium">{age} years old</p>

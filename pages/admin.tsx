@@ -10,19 +10,19 @@ export default function AdminPage() {
 
   return (
     <Container title="Admin">
-      <h1 className="mb-6 text-3xl font-bold md:mb-8 md:text-4xl">
-        Adim Panel
+      <h1 className="mb-6 font-cinzel text-3xl font-bold md:mb-8 md:text-4xl">
+        Admin Panel
       </h1>
       {isLogged ? (
         <>
           <div className="mb-8 md:mb-10">
-            <h2 className="mb-4 text-xl font-bold md:mb-6 md:text-2xl">
+            <h2 className="mb-4 font-cinzel text-lg font-bold md:mb-6 md:text-xl">
               Create new post
             </h2>
             <PostForm />
           </div>
           <div>
-            <h2 className="mb-4 text-xl font-bold md:mb-6 md:text-2xl">
+            <h2 className="mb-4 font-cinzel text-lg font-bold md:mb-6 md:text-xl">
               Create new player
             </h2>
             <PlayerForm />
@@ -30,7 +30,7 @@ export default function AdminPage() {
         </>
       ) : (
         <div>
-          <h2 className="mb-4 text-center text-lg font-bold md:mb-6 md:text-xl">
+          <h2 className="mb-4 text-center text-lg font-medium opacity-70 md:mb-6 md:text-xl">
             Login to use the panel
           </h2>
           <UserForm loginUser={() => setIsLogged(true)} />

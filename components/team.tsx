@@ -10,7 +10,7 @@ export default function Team({ teamName, children }: Props) {
   return (
     <div className="mb-5">
       <div className="mb-2">
-        <h2 className="text-2xl font-bold">
+        <h2 className="font-cinzel text-2xl font-bold">
           {capitalizeFirstLetter(teamName.toLowerCase())}
         </h2>
       </div>
