@@ -69,13 +69,32 @@ export default function Home() {
                 >
                   {post.name}
                 </Link>
-                <p className="text-xs opacity-70">
+                <p className="min-w-fit flex-1 pl-6 text-right text-xs opacity-70">
                   {formatDistanceToNow(new Date(post.posted))} ago
                 </p>
               </div>
             ))}
           </LatestNewsCard>
         )}
+      </div>
+      <div className="mt-8 rounded-md border border-gray-300/40 bg-white py-6 px-8 shadow-md md:mt-10 md:py-8 md:px-12">
+        <h2 className="mb-2 text-lg font-bold uppercase md:mb-6 md:text-xl">
+          History
+        </h2>
+        <p className="mb-2">
+          While Quidditch was the first (and so far, only) broomstick-based game
+          to attain near-worldwide popularity amongst the wizarding people, it
+          was certainly not the first broomstick game. In truth, Quidditch
+          probably owed a debt to a number of its forerunners in making it as
+          successful as it became.
+        </p>
+        <p>
+          All of these archaic broom games were popular in localised areas, but
+          none had the vast appeal that Quidditch did. The beauty of Quidditch
+          was that it took the best aspects of all its predecessors, added its
+          own unique twists, and ended up as a game that would remain popular
+          with the masses for centuries.
+        </p>
       </div>
     </Container>
   )

@@ -8,6 +8,7 @@ export default function PlayerForm() {
     firstname: '',
     lastname: '',
     age: '',
+    team: '1',
     playerType: 'CHASER'
   })
   const [file, setFile] = useState<File | null>(null)
@@ -50,6 +51,7 @@ export default function PlayerForm() {
           firstname: '',
           lastname: '',
           age: '',
+          team: '1',
           playerType: 'CHASER'
         })
 
@@ -104,6 +106,21 @@ export default function PlayerForm() {
           onChange={handleChange}
           value={input.age}
         />
+      </div>
+      <div className="flex flex-col gap-1">
+        <label className="text-zinc-900/60">Player type</label>
+        <select
+          id="team"
+          name="team"
+          required
+          className="rounded-md border px-1 py-2"
+          onChange={handleChange}
+        >
+          <option value="1">Gryffindor</option>
+          <option value="2">Slytherin</option>
+          <option value="3">Hufflepuff</option>
+          <option value="4">Ravenclaw</option>
+        </select>
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-zinc-900/60">Player type</label>

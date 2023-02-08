@@ -24,7 +24,7 @@ export default function FeedPost(props: Props) {
   }
 
   return (
-    <li className="rounded-md border border-zinc-300/70 bg-white py-2 px-4">
+    <li className="rounded-md border border-zinc-300/70 bg-white py-2 px-4 shadow-md">
       <div className="mb-4">
         <p className="text-lg font-bold">
           <Link href={`/news/${id}`}>{name}</Link>

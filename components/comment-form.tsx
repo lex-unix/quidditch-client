@@ -41,10 +41,10 @@ export default function CommentForm({ postId }: Props) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto flex max-w-md flex-col justify-center gap-4 rounded-xl border bg-white py-4 px-6"
+      className="flex flex-col justify-center gap-4 rounded-md border bg-white py-4 px-6 shadow-md"
     >
-      <div className="flex flex-col gap-1">
-        <label className="opacity-60">First name</label>
+      <div className="flex max-w-sm flex-col gap-1">
+        <label className="opacity-60">Your name</label>
         <input
           id="author"
           name="author"
@@ -64,7 +64,7 @@ export default function CommentForm({ postId }: Props) {
           className="rounded-md border px-2 py-1"
         ></textarea>
       </div>
-      <button className="mx-auto w-fit rounded-md bg-black px-4 py-2 text-white">
+      <button className="mx-auto w-fit rounded-md border bg-black px-4 py-2 text-sm text-white">
         Submit
       </button>
     </form>

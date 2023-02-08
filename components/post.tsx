@@ -8,7 +8,7 @@ export default function Post(props: Props) {
 
   const created = posted && posted.split('.')[0]
   return (
-    <div>
+    <div className="rounded-md border bg-white px-4 py-2 shadow-md md:py-6 md:px-8">
       <div>
         <h2 className="text-2xl font-bold md:text-3xl">{name}</h2>
         <p className="mt-2">{content}</p>

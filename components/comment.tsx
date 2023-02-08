@@ -26,13 +26,13 @@ export default function Comment(props: Props) {
   }
 
   return (
-    <div className="rounded-md bg-gray-50 py-2 px-4">
+    <div className="rounded-md border bg-white py-2 px-4 shadow-md">
       <div className="">
-        <p className="font-semibold opacity-60">{author}</p>
+        <p className="font-semibold opacity-50">{author}</p>
         <p>{content}</p>
       </div>
       <div className="flex items-center justify-end">
-        <p className="mr-2 text-right">
+        <p className="mr-2 text-right opacity-50">
           {formatDistanceToNow(new Date(posted))} ago
         </p>
         {isAdmin && (

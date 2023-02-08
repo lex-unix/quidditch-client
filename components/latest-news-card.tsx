@@ -7,7 +7,7 @@ interface Props {
 
 export default function LatestNewsCard({ children }: Props) {
   return (
-    <div className="w-full rounded-md border border-gray-300/40 bg-white py-6 px-8 md:py-8 md:px-12">
+    <div className="w-full rounded-md border border-gray-300/40 bg-white py-6 px-8 shadow-md md:py-8 md:px-12">
       <div className="mb-4 flex items-center md:mb-8">
         <h3 className="mr-2 text-lg font-bold uppercase md:mr-4 md:text-xl">
           latest news

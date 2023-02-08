@@ -23,7 +23,7 @@ export default function AdminPage() {
           </div>
           <div>
             <h2 className="mb-4 text-xl font-bold md:mb-6 md:text-2xl">
-              Create new Player
+              Create new player
             </h2>
             <PlayerForm />
           </div>

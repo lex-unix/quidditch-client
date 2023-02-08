@@ -86,7 +86,7 @@ export default function Carousel() {
           <ChevronRightIcon />
         </button>
       )}
-      <div className="absolute inset-x-0 bottom-2 flex h-10 items-center justify-center gap-4 md:bottom-14">
+      <div className="absolute inset-x-0 bottom-2 z-10 flex h-10 items-center justify-center gap-4 md:bottom-14">
         {scrollSnaps.map((_, index) => (
           <DotButton
             key={index}

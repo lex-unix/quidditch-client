@@ -24,7 +24,7 @@ export default function UserForm({ loginUser }: Props) {
     e.preventDefault()
 
     const validUsername = input.username === process.env.NEXT_PUBLIC_USERNAME
-    const validPassword = input.username === process.env.NEXT_PUBLIC_PASSWORD
+    const validPassword = input.password === process.env.NEXT_PUBLIC_PASSWORD
     const valid = validUsername && validPassword
 
     !validUsername &&

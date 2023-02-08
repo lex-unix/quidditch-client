@@ -20,10 +20,17 @@ export type Player = {
   age: number
   playerType: string
   avatar: Avatar
+  team: Team
 }
 
 export type Avatar = {
   id: string
   type: string
   data: string
+}
+
+export type Team = {
+  id: string
+  name: string
+  players: Array<Player>
 }

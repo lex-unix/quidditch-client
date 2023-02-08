@@ -11,14 +11,19 @@ export const createAvatar = async (data: FormData) => {
   })
 }
 
-type PlayerWihtoutAvatarAndId = Omit<Player, 'avatar' | 'id' | 'age'> & {
+type PlayerWihtoutAvatarAndId = Omit<
+  Player,
+  'avatar' | 'id' | 'team' | 'age'
+> & {
   age: string
+  team: string
 }
 
 export const createPlayer = async (
   avatarId: string,
   player: PlayerWihtoutAvatarAndId
 ) => {
+  const { team } = player
   return fetch(`${API_URL}/players/save`, {
     method: 'POST',
     headers: {
@@ -29,7 +34,19 @@ export const createPlayer = async (
       ...player,
       avatar: {
         id: avatarId
+      },
+      team: {
+        id: team
       }
     })
+  })
+}
+
+export const deletePlayer = async (id: number) => {
+  return fetch(`${API_URL}/players/delete/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: API_TOKEN
+    }
   })
 }

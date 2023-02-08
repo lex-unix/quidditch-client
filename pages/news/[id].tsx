@@ -21,27 +21,32 @@ export default function PostPage() {
 
   return (
     <Container title={post.name}>
-      <Post
-        id={post.id}
-        name={post.name}
-        content={post.content}
-        posted={post.posted}
-      />
-      <CommentForm postId={id} />
-      {post.comments && (
-        <div className="mt-4 flex flex-col gap-4 md:mt-6 md:gap-8">
-          {post.comments.map(comment => (
-            <Comment
-              key={comment.id}
-              postId={id}
-              id={comment.id}
-              author={comment.author}
-              content={comment.content}
-              posted={comment.posted}
-            />
-          ))}
+      <div className="mx-auto w-full max-w-4xl">
+        <Post
+          id={post.id}
+          name={post.name}
+          content={post.content}
+          posted={post.posted}
+        />
+        <div className="mt-4 md:mt-8">
+          <h1 className="mb-2 text-xl font-medium md:mb-4">Leave a comment!</h1>
+          <CommentForm postId={id} />
+          {post.comments && (
+            <div className="mt-4 flex flex-col gap-4 md:mt-6 md:gap-8">
+              {post.comments.map(comment => (
+                <Comment
+                  key={comment.id}
+                  postId={id}
+                  id={comment.id}
+                  author={comment.author}
+                  content={comment.content}
+                  posted={comment.posted}
+                />
+              ))}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </Container>
   )
 }

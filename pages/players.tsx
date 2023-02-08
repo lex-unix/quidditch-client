@@ -1,14 +1,14 @@
 import Container from '@/components/container'
-import PlayerForm from '@/components/player-form'
 import PlayerList from '@/components/player-list'
-import usePlayers from '@/hooks/use-players'
 
 export default function PlayersPage() {
-  const { players } = usePlayers()
   return (
     <Container title="players">
+      <h1 className="mb-4 text-2xl font-bold md:text-3xl">All players</h1>
+      <p className="mb-6 text-lg text-gray-500 md:text-xl">
+        You can find every player who takes part in Quidditch here
+      </p>
       <PlayerList />
-      <PlayerForm />
     </Container>
   )
 }
