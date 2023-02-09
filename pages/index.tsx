@@ -7,6 +7,13 @@ import LatestNewsCard from '@/components/latest-news-card'
 import UsePosts from '@/hooks/use-posts'
 import Link from 'next/link'
 import { formatDistanceToNow } from 'date-fns'
+import { Newsreader } from '@next/font/google'
+
+const newsreader = Newsreader({
+  variable: '--font-newsreader',
+  style: 'italic',
+  subsets: ['latin']
+})
 
 export default function Home() {
   const { posts, isError, isLoading } = UsePosts(1, 5)
@@ -77,18 +84,20 @@ export default function Home() {
           </LatestNewsCard>
         )}
       </div>
-      <div className="mt-8 rounded-md border border-gray-300/40 bg-white py-6 px-8 shadow-md md:mt-10 md:py-8 md:px-12">
+      <div
+        className={`mt-8 rounded-md border border-gray-300/40 bg-white py-6 px-8 shadow-md md:mt-10 md:py-8 md:px-12 ${newsreader.variable}`}
+      >
         <h2 className="mb-2 font-cinzel text-lg font-bold uppercase md:mb-6 md:text-xl">
           About
         </h2>
-        <p className="mb-2 text-sm italic">
+        <p className="mb-2 font-newsreader text-lg opacity-70">
           While Quidditch was the first (and so far, only) broomstick-based game
           to attain near-worldwide popularity amongst the wizarding people, it
           was certainly not the first broomstick game. In truth, Quidditch
           probably owed a debt to a number of its forerunners in making it as
           successful as it became.
         </p>
-        <p className="text-sm italic">
+        <p className="font-newsreader text-lg italic opacity-70">
           All of these archaic broom games were popular in localised areas, but
           none had the vast appeal that Quidditch did. The beauty of Quidditch
           was that it took the best aspects of all its predecessors, added its

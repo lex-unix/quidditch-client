@@ -12,7 +12,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        cinzel: ['var(--font-cinzel)']
+        cinzel: ['var(--font-cinzel)'],
+        newsreader: ['var(--font-newsreader)']
       }
     }
   },
