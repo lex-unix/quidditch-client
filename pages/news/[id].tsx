@@ -1,23 +1,19 @@
 import { useRouter } from 'next/router'
 import Container from '@/components/container'
 import Post from '@/components/post'
-import UsePost from '@/hooks/use-post'
 import CommentForm from '@/components/comment-form'
 import Comment from '@/components/comment'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { API_URL } from '@/lib/constants'
+import { Post as PostProps } from '@/lib/types'
 
-export default function PostPage() {
+export default function PostPage({
+  post
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter()
   const { id } = router.query
 
   if (!id || typeof id !== 'string') return
-
-  const { post, isError, isLoading } = UsePost(id)
-
-  if (!post || isError || isLoading) {
-    return null
-  }
-
-  console.log(post)
 
   return (
     <Container title={post.name}>
@@ -51,4 +47,20 @@ export default function PostPage() {
       </div>
     </Container>
   )
+}
+
+export const getServerSideProps: GetServerSideProps<{
+  post: PostProps
+}> = async context => {
+  const { id } = context.query
+
+  const res = await fetch(`${API_URL}/posts/get/${id}`)
+
+  const post: PostProps = await res.json()
+
+  return {
+    props: {
+      post
+    }
+  }
 }

@@ -4,7 +4,7 @@ import StatsCard from '@/components/stats-card'
 import StatsItem from '@/components/stat-item'
 import Image from 'next/image'
 import LatestNewsCard from '@/components/latest-news-card'
-import UsePosts from '@/hooks/use-posts'
+import usePosts from '@/hooks/use-posts'
 import Link from 'next/link'
 import { formatDistanceToNow } from 'date-fns'
 import { Newsreader } from '@next/font/google'
@@ -16,7 +16,7 @@ const newsreader = Newsreader({
 })
 
 export default function Home() {
-  const { posts, isError, isLoading } = UsePosts(1, 5)
+  const { posts, isError, isLoading } = usePosts(1, 5)
 
   return (
     <Container title="Quidditch">

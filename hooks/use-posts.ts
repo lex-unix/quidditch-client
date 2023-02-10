@@ -8,7 +8,7 @@ type Data = {
   totalCount: number
 }
 
-export default function UsePosts(page: number = 1, length: number = 20) {
+export default function usePosts(page: number = 1, length: number = 20) {
   const { data, isLoading, error } = useSWR<Data>(
     `${API_URL}/posts/get-all?page=${page}&length=${length}`,
     fetcher

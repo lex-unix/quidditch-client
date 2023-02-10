@@ -1,9 +1,9 @@
 import Container from '@/components/container'
 import FeedPost from '@/components/feed-post'
-import UsePosts from '@/hooks/use-posts'
+import usePosts from '@/hooks/use-posts'
 
 export default function NewsPage() {
-  const { posts, isLoading } = UsePosts()
+  const { posts, isLoading } = usePosts()
 
   if (isLoading || !posts) {
     return null
