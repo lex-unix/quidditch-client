@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { useAtomValue } from 'jotai'
 import { admin } from '@/store/admin'
 import { deletePost } from '@/lib/post'
-import { format } from 'date-fns'
+import { format, isToday } from 'date-fns'
 
 interface Props extends PostProps {}
 
@@ -15,7 +15,10 @@ export default function FeedPost(props: Props) {
   const isAdmin = useAtomValue(admin)
   const { id, name, content, posted } = props
   const { mutate } = useSWRConfig()
-  const date = format(new Date(posted), 'HH:mm')
+  const date = new Date(posted)
+  const formatedDate = isToday(date)
+    ? format(date, 'HH:mm')
+    : format(date, 'dd/MM')
 
   const handlePostDelete = async () => {
     const res = await deletePost(id)
@@ -27,7 +30,10 @@ export default function FeedPost(props: Props) {
 
   return (
     <li className="relative mb-4 flex flex-col border-b bg-white pb-2 last:border-b-0 md:flex-row md:items-start">
-      <p className="mt-1 mr-4 text-left text-sm opacity-60">{date}</p>
+      <div className="mt-1 mr-4 inline-flex flex-col items-center justify-center text-sm opacity-60">
+        <p className="">{formatedDate}</p>
+        {!isToday(date) && <p>{date.getFullYear()}</p>}
+      </div>
       <div className="mt-2 flex-1 md:mt-0">
         <Link
           className="text-lg font-medium underline-offset-2 hover:text-rose-800 hover:underline"
@@ -35,7 +41,7 @@ export default function FeedPost(props: Props) {
         >
           {name}
         </Link>
-        <span className="pl-0.5 opacity-60 line-clamp-1">{content}</span>
+        <span className="opacity-60 line-clamp-1">{content}</span>
       </div>
       {isAdmin && (
         <div className="absolute -top-1 -right-4 md:-top-4">
