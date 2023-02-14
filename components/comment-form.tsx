@@ -1,8 +1,7 @@
 import { createComment } from '@/lib/comment'
-import { API_URL } from '@/lib/constants'
 import React, { useRef, useState } from 'react'
 import useResizableTextarea from '@/hooks/use-resizable-textarea'
-import { useSWRConfig } from 'swr'
+import { useRouter } from 'next/router'
 
 interface Props {
   postId: string
@@ -14,7 +13,7 @@ export default function CommentForm({ postId }: Props) {
     content: ''
   })
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-  const { mutate } = useSWRConfig()
+  const router = useRouter()
 
   useResizableTextarea(textareaRef.current, input.content)
 
@@ -33,7 +32,7 @@ export default function CommentForm({ postId }: Props) {
     const res = await createComment(postId, input)
 
     if (res.ok) {
-      mutate(`${API_URL}/posts/get/${postId}`)
+      router.replace(router.asPath)
       setInput({
         author: '',
         content: ''
@@ -55,6 +54,7 @@ export default function CommentForm({ postId }: Props) {
           type="text"
           onChange={handleChange}
           value={input.author}
+          required
           className="rounded-md border px-2 py-1"
         />
       </div>
@@ -66,6 +66,7 @@ export default function CommentForm({ postId }: Props) {
           name="content"
           onChange={handleChange}
           value={input.content}
+          required
           className="min-h-[40px] rounded-md border px-2 py-1"
         ></textarea>
       </div>

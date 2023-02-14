@@ -1,26 +1,25 @@
-import { API_URL } from '@/lib/constants'
 import { type Comment as CommentProps } from '@/lib/types'
 import { formatDistanceToNow } from 'date-fns'
 import { TrashIcon } from './icons'
-import { useSWRConfig } from 'swr'
 import { deleteComment } from '@/lib/comment'
 import { useAtomValue } from 'jotai'
 import { admin } from '@/store/admin'
+import { useRouter } from 'next/router'
 
 interface Props extends CommentProps {
   postId: string
 }
 
 export default function Comment(props: Props) {
-  const { postId, id, author, content, posted } = props
+  const { id, author, content, posted } = props
   const isAdmin = useAtomValue(admin)
-  const { mutate } = useSWRConfig()
+  const router = useRouter()
 
   const handleDeleteComment = async () => {
     const res = await deleteComment(id)
 
     if (res.ok) {
-      mutate(`${API_URL}/posts/get/${postId}`)
+      router.replace(router.asPath)
       console.log('Deleted comment:', id)
     }
   }
