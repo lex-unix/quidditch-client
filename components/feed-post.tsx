@@ -8,11 +8,13 @@ import { useAtomValue } from 'jotai'
 import { admin } from '@/store/admin'
 import { deletePost } from '@/lib/post'
 import { format, isToday } from 'date-fns'
+import { pageAtom } from '@/store/page'
 
 interface Props extends PostProps {}
 
 export default function FeedPost(props: Props) {
   const isAdmin = useAtomValue(admin)
+  const currentPage = useAtomValue(pageAtom)
   const { id, name, content, posted } = props
   const { mutate } = useSWRConfig()
   const date = new Date(posted)
@@ -22,9 +24,8 @@ export default function FeedPost(props: Props) {
 
   const handlePostDelete = async () => {
     const res = await deletePost(id)
-    if (!res.ok) {
-    } else {
-      mutate(`${API_URL}/posts/get-all?page=${1}&length=${100}`)
+    if (res.ok) {
+      mutate(`${API_URL}/posts/get-all?page=${currentPage}&length=${33}`)
     }
   }
 

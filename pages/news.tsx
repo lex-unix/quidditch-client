@@ -2,10 +2,12 @@ import Container from '@/components/container'
 import FeedPost from '@/components/feed-post'
 import { ChevronLeftIcon, ChevronRightIcon } from '@/components/icons'
 import usePosts from '@/hooks/use-posts'
-import React, { useState } from 'react'
+import { pageAtom } from '@/store/page'
+import { useAtom } from 'jotai'
+import React from 'react'
 
 export default function NewsPage() {
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useAtom(pageAtom)
 
   return (
     <Container title="News">
@@ -22,8 +24,8 @@ export default function NewsPage() {
       <div className="hidden">
         <Page
           currentPage={page + 1}
-          onNextPageClick={() => setPage(page + 1)}
-          onPrevPageClick={() => setPage(page - 1)}
+          onNextPageClick={() => {}}
+          onPrevPageClick={() => {}}
         />
       </div>
     </Container>
